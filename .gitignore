@@ -1,0 +1,4 @@
+# Arquivos que não vão para o site
+.claude/
+.DS_Store
+*.part

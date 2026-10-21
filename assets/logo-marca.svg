@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Movie Montes">
+  <!-- Anel = lente da câmera -->
+  <circle cx="60" cy="60" r="54" fill="#14110F"/>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#F2A541" stroke-width="4"/>
+  <!-- Sol do sertão -->
+  <circle cx="84" cy="36" r="9" fill="#F2A541"/>
+  <!-- Serras formando um "M" (Montes) -->
+  <path d="M20 84 L42 44 L56 66 L68 48 L100 84 Z" fill="#E4572E"/>
+  <!-- Botão play recortado na serra (vídeo) -->
+  <path d="M63 60 L63 78 L78 69 Z" fill="#14110F"/>
+  <!-- Onda sonora (música) -->
+  <path d="M26 94 q4 -6 8 0 t8 0 t8 0 t8 0 t8 0 t8 0 t8 0 t8 0 t8 0" fill="none" stroke="#F2A541" stroke-width="3" stroke-linecap="round"/>
+</svg>

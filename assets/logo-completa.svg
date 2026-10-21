@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 120" role="img" aria-label="Movie Montes">
+  <g>
+    <circle cx="60" cy="60" r="54" fill="#14110F"/>
+    <circle cx="60" cy="60" r="54" fill="none" stroke="#F2A541" stroke-width="4"/>
+    <circle cx="84" cy="36" r="9" fill="#F2A541"/>
+    <path d="M20 84 L42 44 L56 66 L68 48 L100 84 Z" fill="#E4572E"/>
+    <path d="M63 60 L63 78 L78 69 Z" fill="#14110F"/>
+    <path d="M26 94 q4 -6 8 0 t8 0 t8 0 t8 0 t8 0 t8 0 t8 0 t8 0 t8 0" fill="none" stroke="#F2A541" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="136" y="62" font-family="Syne, 'Arial Black', Arial, sans-serif" font-weight="800" font-size="44" letter-spacing="2" fill="#F5EFE6">MOVIE <tspan fill="#F2A541">MONTES</tspan></text>
+  <text x="138" y="94" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="15" letter-spacing="5" fill="#B9AFA3">VÍDEO · FOTO · TAUÁ-CE</text>
+</svg>
