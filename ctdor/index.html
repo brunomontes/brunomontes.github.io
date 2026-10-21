@@ -131,16 +131,13 @@
     /* ---------- cartões de atendimento ---------- */
     .lista { display: grid; gap: 10px; }
     .atend {
+      display: flex; align-items: center; gap: 14px; padding: 14px 14px 14px 16px;
       border-radius: 18px; background: var(--verde-2); border: 1px solid var(--linha);
-      overflow: hidden; transition: background .2s ease, border-color .2s ease;
+      transition: background .2s ease, border-color .2s ease, transform .15s ease;
     }
-    .atend[open] { background: var(--verde-3); border-color: rgba(212,197,175,.3); }
+    .atend:hover { background: var(--verde-3); border-color: rgba(212,197,175,.3); }
+    .atend:active { transform: scale(.98); }
     .atend[hidden] { display: none; }
-    .atend summary {
-      list-style: none; display: flex; align-items: center; gap: 14px;
-      padding: 14px 16px; cursor: pointer;
-    }
-    .atend summary::-webkit-details-marker { display: none; }
     .atend .ic {
       width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
       background: linear-gradient(145deg, #E2D5C1, #C9B79C); color: var(--verde);
@@ -148,21 +145,13 @@
     .atend .nome { flex: 1; min-width: 0; }
     .atend b { display: block; font-weight: 500; font-size: 16.5px; line-height: 1.2; }
     .atend small { display: block; font-size: 13.5px; color: var(--suave); margin-top: 2px; }
-    .atend .mais {
-      width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
-      border: 1px solid var(--linha); color: var(--bege); transition: transform .25s ease;
+    .atend .servicos {
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+      font-size: 13px; color: var(--bege); opacity: .85; margin-top: 5px; line-height: 1.35;
     }
-    .atend[open] .mais { transform: rotate(45deg); }
-    .detalhe { padding: 0 16px 16px 74px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tags span {
-      font-size: 13px; padding: 5px 10px; border-radius: 99px;
-      background: rgba(212,197,175,.1); color: var(--creme);
-    }
-    .agendar {
-      display: inline-flex; align-items: center; gap: 8px; margin-top: 14px;
-      padding: 10px 14px; border-radius: 12px; background: var(--zap); color: #05261A;
-      font-weight: 600; font-size: 14.5px;
+    .atend .wa {
+      width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--zap); color: #05261A; box-shadow: 0 4px 12px rgba(37,211,102,.25);
     }
 
     /* ---------- cartões com foto ---------- */
@@ -259,7 +248,7 @@
       <section class="secao surge" id="atendimentos">
         <span class="rotulo">Nossos atendimentos</span>
         <h2>Cuidado completo para você e sua família</h2>
-        <p class="intro">Toque em um atendimento para ver os detalhes e agendar.</p>
+        <p class="intro">Toque na especialidade e fale direto com a recepção pelo WhatsApp.</p>
 
         <div class="filtros" role="group" aria-label="Filtrar atendimentos">
           <button class="filtro" data-filtro="todos" aria-pressed="true">Todos</button>
@@ -384,30 +373,15 @@
 
     var lista = document.getElementById("lista");
     lista.innerHTML = ATENDIMENTOS.map(function (a) {
-      var msg = "Olá! Vim pelo Instagram e gostaria de agendar " + a.nome + " na CTDOR.";
-      var tags = a.servicos.length
-        ? '<div class="tags">' + a.servicos.map(function (s) { return "<span>" + esc(s) + "</span>"; }).join("") + "</div>"
-        : "";
-      return '<details class="atend" data-cat="' + a.cat + '">' +
-        '<summary>' +
-          '<span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + (ICONES[a.ic] || "") + "</svg></span>" +
-          '<span class="nome"><b>' + esc(a.nome) + "</b><small>" + esc(a.prof) + "</small></span>" +
-          '<span class="mais" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>' +
-        "</summary>" +
-        '<div class="detalhe">' + tags +
-          '<a class="agendar" href="' + wa(msg) + '" target="_blank" rel="noopener">' +
-            '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Z"/></svg>' +
-            "Agendar " + esc(a.nome) +
-          "</a>" +
-        "</div>" +
-      "</details>";
+      // Mensagem que chega na recepção ao tocar na especialidade
+      var msg = "Olá! Vim pelo Instagram e procuro atendimento em " + a.nome + ". Poderia me informar os horários disponíveis?";
+      var servicos = a.servicos.length ? '<span class="servicos">' + esc(a.servicos.join(" · ")) + "</span>" : "";
+      return '<a class="atend" data-cat="' + a.cat + '" href="' + wa(msg) + '" target="_blank" rel="noopener">' +
+        '<span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + (ICONES[a.ic] || "") + "</svg></span>" +
+        '<span class="nome"><b>' + esc(a.nome) + "</b><small>" + esc(a.prof) + "</small>" + servicos + "</span>" +
+        '<span class="wa" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Z"/></svg></span>' +
+      "</a>";
     }).join("");
-
-    // Abrir um fecha os outros
-    lista.addEventListener("toggle", function (e) {
-      if (!e.target.open) return;
-      lista.querySelectorAll("details[open]").forEach(function (d) { if (d !== e.target) d.open = false; });
-    }, true);
 
     // Filtros
     document.querySelectorAll(".filtro").forEach(function (btn) {
