@@ -116,9 +116,11 @@ h2 {
 .atend:active { transform: scale(.98); }
 .atend[hidden] { display: none; }
 .atend .ic {
-  width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; overflow: hidden;
   background: linear-gradient(145deg, #E2D5C1, #C9B79C); color: var(--verde);
+  box-shadow: 0 0 0 2px var(--verde-2), 0 0 0 3px rgba(212,197,175,.55);
 }
+.atend .ic img, .esp-card .icones img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .atend .nome { flex: 1; min-width: 0; }
 .atend b { display: block; font-weight: 500; font-size: 16.5px; line-height: 1.2; }
 .atend small { display: block; font-size: 13.5px; color: var(--suave); margin-top: 2px; }
@@ -191,7 +193,7 @@ footer a { text-decoration: underline; text-underline-offset: 2px; }
 .esp-card:active { transform: scale(.98); }
 .esp-card .icones { display: flex; justify-content: center; }
 .esp-card .icones span {
-  width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; overflow: hidden;
   background: linear-gradient(145deg, #E2D5C1, #C9B79C); color: var(--verde);
   border: 3px solid var(--verde-3); margin-left: -10px;
 }
