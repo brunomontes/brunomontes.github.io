@@ -7,7 +7,7 @@ var WHATSAPP = "5588997173507";
 // ===== ATENDIMENTOS =====
 // Para incluir, tirar ou mudar um atendimento, edite esta lista.
 // cat: consultas, exames, estetica, cuidados (pode ter mais de uma, separadas por espaço)
-// foto: nome do arquivo em equipe/ (sem .jpg); sem foto, aparece o ícone
+// foto: rosto do profissional em equipe/ (sem .jpg); imagem: foto ilustrativa (Unsplash) quando não há profissional; sem nenhuma, aparece o ícone
 var ATENDIMENTOS = [
   { nome: "Medicina da Dor", prof: "Dr. Romário Reis", foto: "romario", cat: "consultas", ic: "dor",
     servicos: ["Coluna, joelho e articulações", "Dor de cabeça e enxaqueca", "Dores crônicas e neuropáticas", "Fibromialgia", "Hérnia de disco"] },
@@ -27,8 +27,8 @@ var ATENDIMENTOS = [
     servicos: ["Endoscopia digestiva alta com sedação", "Gastrite", "Refluxo", "Detecção precoce de lesões"] },
   { nome: "Ultrassonografia", prof: "Dra. Eduarda Abreu", foto: "eduarda", cat: "exames", ic: "ultrassom",
     servicos: ["Abdome", "Pélvica", "Transvaginal", "Mamas", "Tireoide", "Obstétrica", "Próstata", "E outras"] },
-  { nome: "Exames Laboratoriais", prof: "CTDOR LAB", cat: "exames", ic: "tubo", servicos: [] },
-  { nome: "Eletrocardiograma", prof: "Exame do coração", cat: "exames", ic: "ecg", servicos: [] },
+  { nome: "Exames Laboratoriais", prof: "CTDOR LAB", imagem: "lab", cat: "exames", ic: "tubo", servicos: [] },
+  { nome: "Eletrocardiograma", prof: "Exame do coração", imagem: "ecg", cat: "exames", ic: "ecg", servicos: [] },
   { nome: "Harmonização Corporal e Glútea", prof: "Dra. Naysa Sousa", foto: "naysa", cat: "estetica", ic: "brilho",
     servicos: ["Endolaser", "Harmonização glútea"] },
   { nome: "Nutrição", prof: "Dra. Andressa Lima", foto: "andressa", cat: "cuidados", ic: "folha",

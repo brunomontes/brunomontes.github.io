@@ -9,10 +9,11 @@ function esc(t) {
 function icone(nome, tam) {
   return '<svg width="' + tam + '" height="' + tam + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + (ICONES[nome] || "") + "</svg>";
 }
-// Foto do profissional quando houver; senão, o ícone da especialidade
+// Foto do profissional (ou imagem ilustrativa) quando houver; senão, o ícone da especialidade
 function avatar(a, tam) {
-  return a.foto
-    ? '<img src="equipe/' + a.foto + '.jpg" alt="' + esc(a.prof) + '" width="' + tam + '" height="' + tam + '" loading="lazy">'
+  var arq = a.foto || a.imagem;
+  return arq
+    ? '<img src="equipe/' + arq + '.jpg" alt="' + esc(a.foto ? a.prof : a.nome) + '" width="' + tam + '" height="' + tam + '" loading="lazy">'
     : icone(a.ic, Math.round(tam * 0.42));
 }
 var ZAP_SVG ='<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Z"/></svg>';
@@ -39,7 +40,7 @@ if (lista) {
     var msg = "Olá! Vim pelo Instagram e procuro atendimento em " + a.nome + ". Poderia me informar os horários disponíveis?";
     var servicos = a.servicos.length ? '<span class="servicos">' + esc(a.servicos.join(" · ")) + "</span>" : "";
     return '<a class="atend" data-cat="' + a.cat + '" href="' + wa(msg) + '" target="_blank" rel="noopener">' +
-      '<span class="ic' + (a.foto ? " com-foto" : "") + '">' + avatar(a, 56) + "</span>" +
+      '<span class="ic">' + avatar(a, 56) + "</span>" +
       '<span class="nome"><b>' + esc(a.nome) + "</b><small>" + esc(a.prof) + "</small>" + servicos + "</span>" +
       '<span class="wa" aria-hidden="true">' + ZAP_SVG + "</span>" +
     "</a>";
