@@ -22,7 +22,7 @@ var ATENDIMENTOS = [
   { nome: "Pediatria e Neuropediatria", prof: "Dr. Daniel", foto: "daniel", cat: "consultas", ic: "crianca",
     servicos: ["Do nascimento à adolescência", "Atraso de fala", "TDAH", "TEA", "Convulsões"] },
   { nome: "Dermatologia", prof: "Dr. Ronaldo Moura", foto: "ronaldo", cat: "consultas", ic: "pele", servicos: [] },
-  { nome: "Coloproctologia", prof: "Dr. Joaquim De La Puente", cat: "consultas", ic: "estetoscopio", servicos: [] },
+  { nome: "Coloproctologia", prof: "Dr. Joaquim De La Puente", foto: "joaquim", cat: "consultas", ic: "estetoscopio", servicos: [] },
   { nome: "Endoscopia e Gastroenterologia", prof: "Dr. Walter Peixoto", foto: "walter", cat: "consultas exames", ic: "estomago",
     servicos: ["Endoscopia digestiva alta com sedação", "Gastrite", "Refluxo", "Detecção precoce de lesões"] },
   { nome: "Ultrassonografia", prof: "Dra. Eduarda Abreu", foto: "eduarda", cat: "exames", ic: "ultrassom",
