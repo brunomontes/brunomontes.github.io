@@ -35,7 +35,7 @@ var ATENDIMENTOS = [
     servicos: ["Acompanhamento nutricional personalizado", "Método Bodymetrix", "Saúde da mulher e fertilidade"] },
   { nome: "Saúde da Mulher", prof: "Enf. Giovanna Sales", foto: "giovanna", cat: "cuidados exames", ic: "mulher",
     servicos: ["Exame preventivo", "Taping", "Laserterapia", "Consultoria de amamentação"] },
-  { nome: "Tratamento de Feridas", prof: "Enf. Vanessa Santos", cat: "cuidados", ic: "curativo",
+  { nome: "Tratamento de Feridas", prof: "Enf. Vanessa Santos", foto: "vanessa", cat: "cuidados", ic: "curativo",
     servicos: ["Tratamento avançado de feridas"] }
 ];
 
